@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript"></script>
+    <script src= "js/statistics11.js">
+    </script>
+    <title>CoWid Global Statistics</title>
+</head>
+
+<body onload="printCountryStats(), printCountryRankings()">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card text-white bg-dark mb-3 h-150" style="width: 20rem; margin-top: 20px; margin-left: 10px;">
+                <div class="card-body">
+                    <h5 class="card-title">Rank by New Cases</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><span id="NC1img"></span>&nbsp;&nbsp;&nbsp;<span id="NC1">An item</span><span id="NC1value" style="float: right;"></span></li>
+                        <li class="list-group-item"><span id="NC2img"></span>&nbsp;&nbsp;&nbsp;<span id="NC2">An item</span><span id="NC2value" style="float: right;"></span></li>
+                        <li class="list-group-item"><span id="NC3img"></span>&nbsp;&nbsp;&nbsp;<span id="NC3">An item</span><span id="NC3value" style="float: right;"></span></li>
+                        <li class="list-group-item"><span id="NC4img"></span>&nbsp;&nbsp;&nbsp;<span id="NC4">An item</span><span id="NC4value" style="float: right;"></span></li>
+                        <li class="list-group-item"><span id="NC5img"></span>&nbsp;&nbsp;&nbsp;<span id="NC5">An item</span><span id="NC5value" style="float: right;"></span></li>
+                        <li class="list-group-item"><span id="NC6img"></span>&nbsp;&nbsp;&nbsp;<span id="NC6">An item</span><span id="NC6value" style="float: right;"></span></li>
+                        <li class="list-group-item"><span id="NC7img"></span>&nbsp;&nbsp;&nbsp;<span id="NC7">An item</span><span id="NC7value" style="float: right;"></span></li>
+                        <li class="list-group-item"><span id="NC8img"></span>&nbsp;&nbsp;&nbsp;<span id="NC8">An item</span><span id="NC8value" style="float: right;"></span></li>
+                        <li class="list-group-item"><span id="NC9img"></span>&nbsp;&nbsp;&nbsp;<span id="NC9">An item</span><span id="NC9value" style="float: right;"></span></li>
+                        <li class="list-group-item"><span id="NC10img"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span id="NC10">An item</span><span id="NC10value" style="float: right;"></span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-white  mb-3" style="width: 47rem; margin-top: 20px; right: 23%;background-color:slategrey;">
+                <span><span id="image" style="float: left;"></span><span style="font-size: 50px; margin-left: 12%;" class="text-center" id="Cname">Cname</span></span>
+            </div>
+            <div class="card text-white bg-dark mb-3" style="width: 47rem; margin-top: 20px; right: 23%;">
+                <div class="card-body">
+                    <div class="row row-cols-1 row-cols-md-4 g-4">
+                        <div class="col">
+                                
+                                <div class="card text-center" style="width: 12rem; margin-left: 168px;">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item text-white" style="background-color: rgb(207, 3, 3);font-weight: bolder;">New Cases</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card text-center" style="width: 10rem; margin-left: 158px;">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item" id="todayCases" style="background-color: rgb(207, 3, 3);color: aliceblue;"> - </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    
+                    <div class="row row-cols-1 row-cols-md-4 g-4">
+                        <div class="col">
+                            <div class="card text-center" style="width: 12rem; margin-left: 5px;">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item" style="font-weight:bolder">Total Cases</li>
+                                    <li class="list-group-item" style="font-weight:bolder">Active Cases</li>
+                                    <li class="list-group-item" style="font-weight:bolder">New Deaths</li>
+                                    <li class="list-group-item" style="font-weight:bolder">Total Deaths</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card" style="width: 10rem; right: 10px;">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item" id="cases">-</li>
+                                    <li class="list-group-item" id="active"> - </li>
+                                    <li class="list-group-item" id="todayDeaths"> - </li>
+                                    <li class="list-group-item" id="deaths"> - </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card text-center" style="width: 12rem; right: 22px;">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item" style="font-weight:bolder">Critical Cases</li>
+                                    <li class="list-group-item" style="font-weight:bolder">Recovered Today</li>
+                                    <li class="list-group-item" style="font-weight:bolder">Total Recovered</li>
+                                    <li class="list-group-item" style="font-weight:bolder">Tests Conducted</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card" style="width: 10rem; right: 20px;">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item" id="critical"> - </li>
+                                    <li class="list-group-item" id="todayRecovered"> - </li>
+                                    <li class="list-group-item" id="recovered"> - </li>
+                                    <li class="list-group-item" id="tests"> - </li>
+                                </ul>
+                            </div>
+                        </div>
+                            <div id="curve_chart" style="width: 800px; height: 450px;margin-right: 70%;"></div>
+                            <div id="curve_chart_deaths" style="width: 800px; height: 450px;margin-right: 70%;"></div>
+                            <div id="regions_div" style="width: 900px; height: 450px;"></div>
+                        
+                    </div>
+                </div>
+                <!--<div id="curve_chart" style="width: 500px; height: 400px"></div>-->
+                
+ 
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-white bg-dark mb-3 h-150" style="width: 20rem; margin-top: 20px; right:-35%; ">
+                <div class="card-body">
+                    <h5 class="card-title">Rank by New Deaths</h5>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><span id="ND1img"></span>&nbsp;&nbsp;&nbsp;<span id="ND1">An item</span><span id="ND1value" style="float: right;"></span></li>
+                      <li class="list-group-item"><span id="ND2img"></span>&nbsp;&nbsp;&nbsp;<span id="ND2">An item</span><span id="ND2value" style="float: right;"></span></li>
+                      <li class="list-group-item"><span id="ND3img"></span>&nbsp;&nbsp;&nbsp;<span id="ND3">An item</span><span id="ND3value" style="float: right;"></span></li>
+                      <li class="list-group-item"><span id="ND4img"></span>&nbsp;&nbsp;&nbsp;<span id="ND4">An item</span><span id="ND4value" style="float: right;"></span></li>
+                      <li class="list-group-item"><span id="ND5img"></span>&nbsp;&nbsp;&nbsp;<span id="ND5">An item</span><span id="ND5value" style="float: right;"></span></li>
+                      <li class="list-group-item"><span id="ND6img"></span>&nbsp;&nbsp;&nbsp;<span id="ND6">An item</span><span id="ND6value" style="float: right;"></span></li>
+                      <li class="list-group-item"><span id="ND7img"></span>&nbsp;&nbsp;&nbsp;<span id="ND7">An item</span><span id="ND7value" style="float: right;"></span></li>
+                      <li class="list-group-item"><span id="ND8img"></span>&nbsp;&nbsp;&nbsp;<span id="ND8">An item</span><span id="ND8value" style="float: right;"></span></li>
+                      <li class="list-group-item"><span id="ND9img"></span>&nbsp;&nbsp;&nbsp;<span id="ND9">An item</span><span id="ND9value" style="float: right;"></span></li>
+                      <li class="list-group-item"><span id="ND10img"></span>&nbsp;&nbsp;&nbsp;<span id="ND10">An item</span><span id="ND10value" style="float: right;"></span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card text-white bg-dark mb-3 h-150" style="width: 20rem; margin-top: -1250px; margin-left: 10px;">
+                <div class="card-body">
+                    <h5 class="card-title">Rank by Total Cases</h5>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><span id="TC1img"></span>&nbsp;&nbsp;&nbsp;<span id="TC1">An item</span><span id="TC1value" style="float: right;"></span></li>
+                      <li class="list-group-item"><span id="TC2img"></span>&nbsp;&nbsp;&nbsp;<span id="TC2">An item</span><span id="TC2value" style="float: right;"></span></li>
+                      <li class="list-group-item"><span id="TC3img"></span>&nbsp;&nbsp;&nbsp;<span id="TC3">An item</span><span id="TC3value" style="float: right;"></span></li>
+                      <li class="list-group-item"><span id="TC4img"></span>&nbsp;&nbsp;&nbsp;<span id="TC4">An item</span><span id="TC4value" style="float: right;"></span></li>
+                      <li class="list-group-item"><span id="TC5img"></span>&nbsp;&nbsp;&nbsp;<span id="TC5">An item</span><span id="TC5value" style="float: right;"></span></li>
+                      <li class="list-group-item"><span id="TC6img"></span>&nbsp;&nbsp;&nbsp;<span id="TC6">An item</span><span id="TC6value" style="float: right;"></span></li>
+                      <li class="list-group-item"><span id="TC7img"></span>&nbsp;&nbsp;&nbsp;<span id="TC7">An item</span><span id="TC7value" style="float: right;"></span></li>
+                      <li class="list-group-item"><span id="TC8img"></span>&nbsp;&nbsp;&nbsp;<span id="TC8">An item</span><span id="TC8value" style="float: right;"></span></li>
+                      <li class="list-group-item"><span id="TC9img"></span>&nbsp;&nbsp;&nbsp;<span id="TC9">An item</span><span id="TC9value" style="float: right;"></span></li>
+                      <li class="list-group-item"><span id="TC10img"></span>&nbsp;&nbsp;&nbsp;<span id="TC10">An item</span><span id="TC10value" style="float: right;"></span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-white bg-dark mb-3 h-150" style="width: 20rem; margin-top: -1250px; right: -140%;">
+                <div class="card-body">
+                    <h5 class="card-title">Rank by Total Deaths</h5>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><span id="TD1img"></span>&nbsp;&nbsp;&nbsp;<span id="TD1">An item</span><span id="TD1value" style="float: right;"></span></li>
+                      <li class="list-group-item"><span id="TD2img"></span>&nbsp;&nbsp;&nbsp;<span id="TD2">An item</span><span id="TD2value" style="float: right;"></span></li>
+                      <li class="list-group-item"><span id="TD3img"></span>&nbsp;&nbsp;&nbsp;<span id="TD3">An item</span><span id="TD3value" style="float: right;"></span></li>
+                      <li class="list-group-item"><span id="TD4img"></span>&nbsp;&nbsp;&nbsp;<span id="TD4">An item</span><span id="TD4value" style="float: right;"></span></li>
+                      <li class="list-group-item"><span id="TD5img"></span>&nbsp;&nbsp;&nbsp;<span id="TD5">An item</span><span id="TD5value" style="float: right;"></span></li>
+                      <li class="list-group-item"><span id="TD6img"></span>&nbsp;&nbsp;&nbsp;<span id="TD6">An item</span><span id="TD6value" style="float: right;"></span></li>
+                      <li class="list-group-item"><span id="TD7img"></span>&nbsp;&nbsp;&nbsp;<span id="TD7">An item</span><span id="TD7value" style="float: right;"></span></li>
+                      <li class="list-group-item"><span id="TD8img"></span>&nbsp;&nbsp;&nbsp;<span id="TD8">An item</span><span id="TD8value" style="float: right;"></span></li>
+                      <li class="list-group-item"><span id="TD9img"></span>&nbsp;&nbsp;&nbsp;<span id="TD9">An item</span><span id="TD9value" style="float: right;"></span></li>
+                      <li class="list-group-item"><span id="TD10img"></span>&nbsp;&nbsp;&nbsp;<span id="TD10">An item</span><span id="TD10value" style="float: right;"></span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <script>
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+            google.charts.load('current', {
+                'packages':['geochart'],
+            });
+            google.charts.setOnLoadCallback(drawRegionsMap);
+        </script>
+        <!-- Optional JavaScript; choose one of the two! -->
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+            crossorigin="anonymous"></script>        
+</body>
+
+</html>

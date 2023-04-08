@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simple Map</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <script src="data/clinicData.js"></script>
+    <script src="data/australian_postcodes.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+
+<body>
+    <div id="map"></div>
+<div class='column'>
+
+    <div id="locationField">
+        <div id="currentLocation"> Current State:
+            Current Location:
+        </div>
+        <input id="autocomplete" placeholder="Search for clinics" type="text" />
+        <button class="button" onclick="getInputLocation()">Enter location</button>
+        <div class="slidecontainer" id= "sliderText">
+            <input type="range" min="1" max="25" value="0" class="slider" id="myRange" , onchange="slider()">
+            Highlighting vaccination clinics in a <span id="demo"></span>km radius
+        </div>
+        <div id="list">
+
+        </div>
+
+    </div>
+
+
+
+    <script>
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("demo");
+        output.innerHTML = slider.value;
+
+        slider.oninput = function () {
+            output.innerHTML = this.value;
+        }
+    </script>
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBO0rdk0YwNoskmeO1d73dTv2HD_jcmBqc&callback=initMap&libraries=visualization,places&v=weekly"
+        async></script>
+        
+<script src="js/vaccineClinic.js"></script>
+<script src="js/map.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    </head>
+    <body>
+        <script>
+            let country = 'PRT'
+        $.getJSON('https://covid.ourworldindata.org/data/owid-covid-data.json', function(data) {
+            console.log(data[country].data);
+        });
+        $.getJSON('https://disease.sh/v3/covid-19/vaccine/coverage/countries?lastdays=1&fullData=true', function(data1) {
+            //let value = Object.values(data1[10].timeline)
+            console.log(data1);
+        });
+
+        //$.getJSON("https://disease.sh/v3/covid-19/vaccine/coverage/countries/Mauritius?lastdays=30&fullData=false",function (data1) {
+          //  let cases = Object.values(data1.timeline)
+            //let keys = Object.keys(data1.timeline)
+          //console.log(cases);
+          //console.log(keys);
+        //});
+
+        </script>
+            </body>
+</html>
